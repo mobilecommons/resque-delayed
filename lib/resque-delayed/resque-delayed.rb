@@ -3,11 +3,11 @@ module Resque
     attr_accessor :queue
     @queue = "Resque::Delayed:internal"
     
-    def queue=(arg)
-      self.queue = arg
-    end
-
     class << self
+      def queue=(arg)
+        self.queue = arg
+      end
+      
       def random_uuid
         UUIDTools::UUID.random_create.to_s.gsub('-', '')
       end
