@@ -19,6 +19,7 @@ see resque-delayed/CHANGELOG.md for details}
       worker = Resque::Delayed::Worker.new
       worker.verbose = ENV['LOGGING'] || ENV['VERBOSE']
       worker.very_verbose = ENV['VVERBOSE']
+      worker.fake_queue = ENV['QUEUE']
     end
 
     if ENV['PIDFILE']
