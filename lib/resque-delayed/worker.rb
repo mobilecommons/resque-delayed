@@ -11,13 +11,13 @@ module Resque::Delayed
     # Whether the worker should log lots of info to STDOUT
     attr_accessor  :very_verbose
     
-    attr_accessor :fake_queue
+    attr_accessor :queue
     
     attr_writer :to_s
     
-    def fake_queue=(arg)
-      fake_queue = arg
-      Resque::Delayed.queue= arg
+    def queue=(arg)
+      queue = arg
+      Resque::Delayed.delayed_queue= arg
     end
 
     # Can be passed a float representing the polling frequency.
