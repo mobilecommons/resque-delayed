@@ -1,11 +1,14 @@
 module Resque
   module Delayed
-    attr_accessor :queue
     @queue = "Resque::Delayed:internal"
     
     class << self
       def queue=(arg)
-        self.queue = arg
+        @queue = arg
+      end
+      
+      def queue
+        @queue
       end
       
       def random_uuid
