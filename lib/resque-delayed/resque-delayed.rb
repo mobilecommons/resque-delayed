@@ -23,7 +23,8 @@ module Resque
         Resque.redis.zcard(delayed_queue)
       end
 
-      def create_at(time, *args)
+      def create_at(queue, time, *args)
+        delayed_queue=queue
         klass, *args = args
         future_queue = Resque.queue_from_class klass
         # validate here so that the Resque::Delayed worker doesn't have
@@ -32,7 +33,8 @@ module Resque
         Resque.redis.zadd delayed_queue, time.to_i, encode(future_queue, klass, *args)
       end
 
-      def create_in(offset, *args)
+      def create_in(queue, offset, *args)
+        delayed_queue=queue
         create_at Time.now + offset, *args
       end
 
