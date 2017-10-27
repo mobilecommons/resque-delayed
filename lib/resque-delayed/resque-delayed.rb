@@ -1,5 +1,6 @@
 module Resque
   module Delayed
+    attr_accessor :queue
     @queue = "Resque::Delayed:internal"
 
     class << self
