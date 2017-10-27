@@ -17,7 +17,7 @@ module Resque::Delayed
     
     def fake_queue=(arg)
       fake_queue = arg
-      Resque::Delayed.queue = arg
+      Resque::Delayed.queue= arg
     end
 
     # Can be passed a float representing the polling frequency.
