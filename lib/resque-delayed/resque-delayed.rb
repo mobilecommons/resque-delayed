@@ -16,11 +16,11 @@ module Resque
       end
 
       def clear
-        Resque.redis.del(queue)
+        Resque.redis.del(delayed_queue)
       end
 
       def count
-        Resque.redis.zcard(queue)
+        Resque.redis.zcard(delayed_queue)
       end
 
       def create_at(time, *args)
