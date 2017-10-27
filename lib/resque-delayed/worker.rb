@@ -16,8 +16,12 @@ module Resque::Delayed
     attr_writer :to_s
     
     def queue=(arg)
-      queue = arg
+      @queue = arg
       Resque::Delayed.delayed_queue= arg
+    end
+    
+    def queue
+      @queue 
     end
 
     # Can be passed a float representing the polling frequency.
