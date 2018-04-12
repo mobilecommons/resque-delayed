@@ -86,6 +86,13 @@ Like Resque, Resque::Delayed provides a rake task to run workers. Add `require '
 
     $ cd app_root
     $ LOGGING=1 INTERVAL=10 rake resque_delayed:work
+    
+    FOR Starting you need to do this for examles
+    $ cd app_root
+    $ QUEUE=Resque::Delayed::QueueName MINUTES_PER_FORK=5 INTERVAL=0.1 bin/rake resque:pid environment resque_delayed:work
+
+    
+    
 
 **NOTE: Resque::Delayed workers only take future-queued jobs and push them onto Resque queues when they need to be run. They do *not* actually process jobs so any setup using Resque::Delayed also needs one or more regular Resque workers.**
 
